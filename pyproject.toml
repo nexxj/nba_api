@@ -35,8 +35,11 @@ classifiers = [
 dependencies = [
     "numpy <2.0.0 ; python_version <'3.13'",
     "numpy >=2.0.0 ; python_version >='3.13'",
-    "requests (>=2.32.3,<3.0.0)"
+    "requests (>=2.32.3,<3.0.0)",
+    "flask",
+    "gunicorn"
 ]
+
 readme = "README.md"
 
 [project.urls]
