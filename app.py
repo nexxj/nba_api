@@ -1,17 +1,26 @@
 from flask import Flask, jsonify
-import nba_api.stats.endpoints as nba
+import requests
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return jsonify({"message": "NBA API is running!"})
+    return "NBA API is running"
 
-@app.route('/players', methods=['GET'])
-def get_players():
-    # Example: Fetch active players
-    players = nba.commonallplayers.CommonAllPlayers().get_dict()
-    return jsonify(players)
+@app.route('/stats', methods=['GET'])
+def get_nba_stats():
+    try:
+        # Replace this with the actual NBA stats API you want to use
+        url = "https://www.balldontlie.io/api/v1/players"  # Example API
+        response = requests.get(url)
+
+        if response.status_code == 200:
+            return jsonify(response.json())  # Return actual NBA data
+        else:
+            return jsonify({"error": "Failed to fetch NBA stats"}), response.status_code
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0')
