@@ -10,9 +10,9 @@ maintainers = [
 license = "MIT"
 keywords = ["api", "basketball", "data", "nba", "sports", "stats"]
 readme = "README.md"
-repository = "https://github.com/swar/nba_api"
-homepage = "https://github.com/swar/nba_api"
-documentation = "https://github.com/swar/nba_api/blob/master/README.md"
+repository = "https://github.com/nexxj/nba_api"
+homepage = "https://github.com/nexxj/nba_api"
+documentation = "https://github.com/nexxj/nba_api/blob/master/README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
