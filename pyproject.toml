@@ -1,64 +1,39 @@
-[project]
+[tool.poetry]
 name = "nba_api"
 version = "1.9.0b1"
 description = "An API Client package to access the APIs for NBA.com"
-requires-python = ">=3.9"
-license = "MIT"
-authors = [{name = "Swar Patel", email = "<swar.m.patel@gmail.com>"}]
+authors = ["Swar Patel <swar.m.patel@gmail.com>"]
 maintainers = [
-    {name = "Swar Patel", email = "<swar.m.patel@gmail.com>"},
-    {name = "Randy Forbes", email="<randy.forbes@gmail.com>"},
+    "Swar Patel <swar.m.patel@gmail.com>",
+    "Randy Forbes <randy.forbes@gmail.com>"
 ]
-keywords = [
-    "api", 
-    "basketball", 
-    "data", 
-    "nba", 
-    "sports", 
-    "stats"
-]
-classifiers = [
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Topic :: Software Development",
-    'Programming Language :: Python',
-    'Programming Language :: Python :: 3',
-    "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-]
-dependencies = [
-    "numpy <2.0.0 ; python_version <'3.13'",
-    "numpy >=2.0.0 ; python_version >='3.13'",
-    "requests >=2.32.3,<3.0.0",
-    "flask",
-    "gunicorn"
-]
-
+license = "MIT"
+keywords = ["api", "basketball", "data", "nba", "sports", "stats"]
 readme = "README.md"
+repository = "https://github.com/swar/nba_api"
+homepage = "https://github.com/swar/nba_api"
+documentation = "https://github.com/swar/nba_api/blob/master/README.md"
 
-[project.urls]
-    repository = "https://github.com/swar/nba_api"
-    "Bug Tracker" = "https://github.com/swar/nba_api/issues"
-    documentation = "https://github.com/swar/nba_api/blob/master/README.md"
+[tool.poetry.dependencies]
+python = "^3.9"
+numpy = [
+    {version = "<2.0.0", python = "<3.13"},
+    {version = ">=2.0.0", python = ">=3.13"}
+]
+requests = "^2.32.3"
+flask = "^2.2"
+gunicorn = "^20.1"
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.group.dev.dependencies]
+[tool.poetry.dev-dependencies]
 pytest = "^8.3.3"
 pytest-cov = "^4.0"
 flake8 = "^7.1.1"
 pandas = [
     {version = ">=2.2.0", python = ">=3.12"},
-    {version = "<2.2.0", python = "<3.12"} 
+    {version = "<2.2.0", python = "<3.12"}
 ]
 
-[tool.pytest.ini_options]
-testpaths = "./tests/unit/"
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
